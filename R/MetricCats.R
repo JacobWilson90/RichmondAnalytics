@@ -3,12 +3,13 @@
 #' @return A list of data frames: CS, CS1, CS2, CS3
 #' @export
 load_MetricCats <- function(
-    path = system.file("extdata", "Champion_Stats_V.xlsx", package = "RichmondAnalytics")
+    pathChamp = system.file("extdata", "Champion_Stats_V.xlsx", package = "RichmondAnalytics"),
+    pathMetrics = system.file("extdata", "Metrics26.xlsx", package = "RichmondAnalytics")
 ) {
+  CS  <- readxl::read_excel(pathChamp)
+  SSMET <- readxl::read_excel(pathMetrics)
 
-  CS  <- readxl::read_excel(path)
-
-  CS1 <- readxl::read_excel(path) |>
+  CS1 <- CS %>%
     dplyr::filter(
       champion.stat.code %in% SSMET$Metric_Name |
         champion.stat.code %in% c(
@@ -21,7 +22,7 @@ load_MetricCats <- function(
         )
     )
 
-  CS2 <- readxl::read_excel(path) |>
+  CS2 <- CS %>%
     dplyr::filter(
       champion.stat.code %in% c(
         "DISPOSAL","CENTRE BOUNCE","THROW IN","BALL UP","UNCONTESTED POSSESSION",
@@ -32,7 +33,7 @@ load_MetricCats <- function(
       )
     )
 
-  CS3 <- readxl::read_excel(path) |>
+  CS3 <- CS %>%
     dplyr::filter(
       champion.stat.code %in% c(
         'HITOUT','HIT OUT TO ADVANTAGE','HIT OUT SHARKED','FIRST POSSESSION',

@@ -42,5 +42,5 @@ load_MetricCats <- function(
       )
     )
 
-  list(CS = CS, CS1 = CS1, CS2 = CS2, CS3 = CS3, SSMET = SSMET)
+  list2env(list(CS = CS, CS1 = CS1, CS2 = CS2, CS3 = CS3, SSMET = SSMET), envir = .GlobalEnv)
 }

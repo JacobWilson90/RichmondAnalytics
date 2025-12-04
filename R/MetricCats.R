@@ -2,11 +2,7 @@
 #'
 #' @return A list of data frames: CS, CS1, CS2, CS3
 #' @export
-load_MetricCats <- function(
-    pathChamp = system.file("extdata", "Champion_Stats_V.xlsx", package = "RichmondAnalytics"),
-    pathMetrics = system.file("extdata", "Metrics26.xlsx", package = "RichmondAnalytics"),
-    SEASON_SUM_STATS            <- read_excel("WSEASON_SUM_STATS24.xlsx")
-) {
+load_MetricCats <- function() {
   CS  <- readxl::read_excel(pathChamp)
   SSMET <- readxl::read_excel(pathMetrics)
 
@@ -43,5 +39,5 @@ load_MetricCats <- function(
       )
     )
 
-  list2env(list(CS = CS, CS1 = CS1, CS2 = CS2, CS3 = CS3, SSMET = SSMET), envir = .GlobalEnv)
+  list2env(list(CS = CS, CS1 = CS1, CS2 = CS2, CS3 = CS3), envir = .GlobalEnv)
 }

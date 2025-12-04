@@ -3,9 +3,6 @@
 #' @return A list of data frames: CS, CS1, CS2, CS3
 #' @export
 load_MetricCats <- function() {
-  CS  <- readxl::read_excel(pathChamp)
-  SSMET <- readxl::read_excel(pathMetrics)
-
   CS1 <- CS %>%
     dplyr::filter(
       champion.stat.code %in% SSMET$Metric_Name |

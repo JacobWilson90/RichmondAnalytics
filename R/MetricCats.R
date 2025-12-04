@@ -4,7 +4,8 @@
 #' @export
 load_MetricCats <- function(
     pathChamp = system.file("extdata", "Champion_Stats_V.xlsx", package = "RichmondAnalytics"),
-    pathMetrics = system.file("extdata", "Metrics26.xlsx", package = "RichmondAnalytics")
+    pathMetrics = system.file("extdata", "Metrics26.xlsx", package = "RichmondAnalytics"),
+    SEASON_SUM_STATS            <- read_excel("WSEASON_SUM_STATS24.xlsx")
 ) {
   CS  <- readxl::read_excel(pathChamp)
   SSMET <- readxl::read_excel(pathMetrics)

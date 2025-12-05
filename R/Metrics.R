@@ -3,14 +3,15 @@
 #' @return A data frame: SSMET
 #' @export
 load_Metrics <- function(
-    pathChamp = system.file("extdata", "Champion_Stats_V.xlsx", package = "RichmondAnalytics")
+    pathMetrics = system.file("extdata", "Metrics26.xlsx", package = "RichmondAnalytics")
 ) {
   # Read the excel file
-  CS  <- readxl::read_excel(pathChamp)
+  SSMET <- readxl::read_excel(pathMetrics)
 
   # Export to global environment
-  list2env(list(CS = CS), envir = .GlobalEnv)
+  list2env(list(SSMET = SSMET), envir = .GlobalEnv)
 
   # Also return it
-  return(CS)
+  return(SSMET)
 }
+

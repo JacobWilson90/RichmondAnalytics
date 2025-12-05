@@ -4,9 +4,7 @@
 \alias{load_MetricCats}
 \title{Load all Champion Data}
 \usage{
-load_MetricCats(
-  path = system.file("extdata", "Champion_Stats_V.xlsx", package = "RichmondAnalytics")
-)
+load_MetricCats()
 }
 \value{
 A list of data frames: CS, CS1, CS2, CS3

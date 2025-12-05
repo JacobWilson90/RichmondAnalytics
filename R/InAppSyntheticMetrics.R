@@ -10,7 +10,7 @@
 add_in_app_synthetic_metrics <- function(df) {
 
   df %>%
-    SEASON_SUM_STATS2() %>%
+    df %>%
     mutate(KICK_EFFICIENCY = df$`EFFECTIVE KICK`/KICK,
            SCORES_PER_ENTRY = (GOAL+BEHIND+df$'RUSHED BEHIND')/df$'INSIDE 50',
            SHOT_AT_GOAL_ACCURACY = (GOAL/df$'SHOT AT GOAL'),
